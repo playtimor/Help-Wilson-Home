@@ -1,18 +1,16 @@
 import "@/App.css";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { HashRouter, Routes, Route } from "react-router-dom";
 import { Toaster } from "sonner";
 import Fundraiser from "@/pages/Fundraiser";
-import Admin from "@/pages/Admin";
 
 function App() {
     return (
         <div className="App">
-            <BrowserRouter>
+            <HashRouter>
                 <Routes>
                     <Route path="/" element={<Fundraiser />} />
-                    <Route path="/adicionar-contribuicao" element={<Admin />} />
                 </Routes>
-            </BrowserRouter>
+            </HashRouter>
             <Toaster
                 position="bottom-center"
                 toastOptions={{
