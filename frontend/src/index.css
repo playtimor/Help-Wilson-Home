@@ -1,0 +1,120 @@
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800&family=Outfit:wght@300;400;500;600;700&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+    --bg: #fdfbf7;
+    --surface: #f4efe6;
+    --primary: #c85a17;
+    --primary-hover: #a64a12;
+    --secondary: #8b5a2b;
+    --ink: #2c2621;
+    --ink-soft: #5c5248;
+    --line: #e6d5b8;
+}
+
+* {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+html,
+body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: "Outfit", system-ui, sans-serif;
+}
+
+.font-serif-display {
+    font-family: "Playfair Display", Georgia, serif;
+    letter-spacing: -0.02em;
+}
+
+.font-sans-warm {
+    font-family: "Outfit", system-ui, sans-serif;
+}
+
+/* Grain texture */
+.grain::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.06;
+    mix-blend-mode: multiply;
+    background-image: url("data:image/svg+xml;utf8,<svg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.17 0 0 0 0 0.15 0 0 0 0 0.13 0 0 0 0.6 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+}
+
+/* Animated progress fill */
+@keyframes shimmer {
+    0% {
+        background-position: -200% 0;
+    }
+    100% {
+        background-position: 200% 0;
+    }
+}
+.progress-fill {
+    background-image: linear-gradient(
+        90deg,
+        #c85a17 0%,
+        #e07b35 40%,
+        #c85a17 80%
+    );
+    background-size: 200% 100%;
+    animation: shimmer 4s ease-in-out infinite;
+}
+
+/* Selection */
+::selection {
+    background: #c85a17;
+    color: #fff;
+}
+
+/* Hide scrollbar on horizontal lists */
+.no-scrollbar::-webkit-scrollbar {
+    display: none;
+}
+.no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+/* Custom underline link */
+.link-underline {
+    position: relative;
+    display: inline-block;
+}
+.link-underline::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    height: 1px;
+    width: 100%;
+    background: currentColor;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s ease;
+}
+.link-underline:hover::after {
+    transform: scaleX(1);
+}
+
+/* Subtle fade-in */
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(16px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+.fade-up {
+    animation: fadeUp 0.8s ease-out both;
+}
