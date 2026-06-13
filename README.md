@@ -8,17 +8,7 @@ Site estático da vaquinha para o Wilson voltar a Moçambique no aniversário.
 
 ## Como atualizar o progresso da vaquinha
 
-Edita o ficheiro `frontend/src/data/fundraiserData.json`:
-
-```json
-{
-  "goal": 1000,
-  "raised": 350,
-  "contributors_count": 12,
-  "deadline": "2026-06-20T23:59:59+01:00",
-  "birthday": "2026-06-25T00:00:00+01:00"
-}
-```
+Edita o ficheiro `frontend/src/data/fundraiserData.json`.
 
 ### 1. Atualizar o valor angariado
 
