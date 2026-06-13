@@ -1,7 +1,6 @@
 import { MapPin, ArrowRight } from "lucide-react";
 
-const HERO_IMG =
-    "https://customer-assets.emergentagent.com/job_help-wilson-home/artifacts/vlbygrhv_Screenshot_20260613-161809.png";
+const HERO_IMG = "/Help-Wilson-Home/images/wilson-hero.png";
 
 export default function Hero() {
     const goTo = (id) => {

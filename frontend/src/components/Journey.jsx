@@ -1,7 +1,6 @@
 import { Plane, Home, Heart } from "lucide-react";
 
-const JOURNEY_IMG =
-    "https://customer-assets.emergentagent.com/job_help-wilson-home/artifacts/uqp64ukk_Screenshot_20260613-161750.png";
+const JOURNEY_IMG = "/Help-Wilson-Home/images/wilson-journey.png";
 
 const steps = [
     {

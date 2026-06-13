@@ -1,5 +1,4 @@
-const REUNION_IMG =
-    "https://customer-assets.emergentagent.com/job_help-wilson-home/artifacts/62nztsmr_Screenshot_20260613-161816.png";
+const REUNION_IMG = "/Help-Wilson-Home/images/wilson-reunion.png";
 
 export default function TeamFooter() {
     return (
