@@ -24,7 +24,9 @@ function useCountdown(targetIso) {
 }
 
 export default function GoalProgress({ stats, loading }) {
-    const pct = Math.min(100, stats?.percentage || 0);
+    const pct = stats?.percentage || 0;
+    const barWidth = Math.min(100, pct);
+    const surpassed = pct > 100;
     const deadline = useCountdown(stats?.deadline);
     const birthday = useCountdown(stats?.birthday);
 
@@ -75,8 +77,8 @@ export default function GoalProgress({ stats, loading }) {
                         className="relative h-6 sm:h-7 rounded-full bg-[#F4EFE6] border border-[#E6D5B8] overflow-hidden"
                     >
                         <div
-                            className="absolute inset-y-0 left-0 progress-fill rounded-full transition-[width] duration-1000 ease-out"
-                            style={{ width: `${pct}%` }}
+                            className={`absolute inset-y-0 left-0 ${surpassed ? "progress-fill-success" : "progress-fill"} rounded-full transition-[width] duration-1000 ease-out`}
+                            style={{ width: `${barWidth}%` }}
                         />
                         <div className="absolute inset-0 flex items-center justify-end pr-4">
                             <span className="text-xs font-medium text-[#2C2621] mix-blend-multiply">

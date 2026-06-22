@@ -67,6 +67,16 @@ body {
     background-size: 200% 100%;
     animation: shimmer 4s ease-in-out infinite;
 }
+.progress-fill-success {
+    background-image: linear-gradient(
+        90deg,
+        #16a34a 0%,
+        #22c55e 40%,
+        #16a34a 80%
+    );
+    background-size: 200% 100%;
+    animation: shimmer 4s ease-in-out infinite;
+}
 
 /* Selection */
 ::selection {
