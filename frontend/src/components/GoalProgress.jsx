@@ -100,7 +100,7 @@ export default function GoalProgress({ stats, loading }) {
                         />
                         <StatCard
                             icon={<Calendar size={18} strokeWidth={1.5} />}
-                            label="Prazo (20 jun)"
+                            label="Prazo (24 jun)"
                             value={
                                 deadline.done
                                     ? "Encerrado"

@@ -10,7 +10,7 @@ import TeamFooter from "@/components/TeamFooter";
 export default function Fundraiser() {
     const stats = useMemo(() => {
         const { goal, raised, contributors_count, deadline, birthday } = fundraiserData;
-        const percentage = Math.min(100, (raised / goal) * 100);
+        const percentage = (raised / goal) * 100;
         return { goal, raised, contributors_count, percentage, deadline, birthday };
     }, []);
 
