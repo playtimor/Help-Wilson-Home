@@ -4,7 +4,7 @@ import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import Journey from "@/components/Journey";
 import GoalProgress from "@/components/GoalProgress";
-import DonationMethods from "@/components/DonationMethods";
+import Gratitude from "@/components/DonationMethods";
 import TeamFooter from "@/components/TeamFooter";
 
 export default function Fundraiser() {
@@ -24,7 +24,7 @@ export default function Fundraiser() {
             <Hero />
             <Journey />
             <GoalProgress stats={stats} loading={false} />
-            <DonationMethods />
+            <Gratitude />
             <TeamFooter />
         </main>
     );

@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Heart } from "lucide-react";
+import { Plane } from "lucide-react";
 
 export default function Header() {
     const [scrolled, setScrolled] = useState(false);
@@ -34,14 +34,13 @@ export default function Header() {
                     }}
                     className="flex items-center gap-2 text-[#2C2621]"
                 >
-                    <Heart
-                        className="text-[#C85A17]"
+                    <Plane
+                        className="text-[#009A44]"
                         size={18}
                         strokeWidth={1.5}
-                        fill="#C85A17"
                     />
                     <span className="font-serif-display text-lg sm:text-xl">
-                        Para o Wilson
+                        Wilson vai a casa
                     </span>
                 </a>
 
@@ -62,23 +61,23 @@ export default function Header() {
                     </button>
                     <button
                         data-testid="nav-contribuir"
-                        onClick={() => goTo("contribuir")}
+                        onClick={() => goTo("gratidao")}
                         className="link-underline"
                     >
-                        Contribuir
+                        Obrigado
                     </button>
                 </nav>
 
                 <button
                     data-testid="header-donate-cta"
-                    onClick={() => goTo("contribuir")}
-                    className="group inline-flex items-center gap-2 rounded-full bg-[#C85A17] hover:bg-[#A64A12] text-white px-5 py-2.5 text-sm font-medium shadow-sm hover:-translate-y-0.5 hover:shadow-lg transition-all"
+                    onClick={() => goTo("historia")}
+                    className="group inline-flex items-center gap-2 rounded-full moz-btn-primary text-white px-5 py-2.5 text-sm font-medium shadow-sm hover:-translate-y-0.5 hover:shadow-lg transition-all"
                 >
-                    Doar agora
-                    <Heart
+                    A viagem
+                    <Plane
                         size={14}
                         strokeWidth={2}
-                        className="group-hover:scale-110 transition-transform"
+                        className="group-hover:translate-x-1 transition-transform"
                     />
                 </button>
             </div>

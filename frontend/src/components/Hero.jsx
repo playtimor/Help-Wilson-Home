@@ -16,21 +16,20 @@ export default function Hero() {
         >
             <div className="max-w-7xl mx-auto grid lg:grid-cols-12 gap-10 lg:gap-16 items-center">
                 <div className="lg:col-span-7 fade-up">
-                    <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#F4EFE6] border border-[#E6D5B8] text-[#8B5A2B] text-xs tracking-wide uppercase mb-8">
+                    <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#009A44]/10 border border-[#009A44]/30 text-[#009A44] text-xs tracking-wide uppercase mb-8">
                         <MapPin size={12} strokeWidth={1.8} />
-                        Lisboa → Moçambique
+                        Lisboa → Moçambique &middot; Missão Cumprida
                     </div>
 
                     <h1
                         data-testid="hero-title"
                         className="font-serif-display text-[#2C2621] text-5xl sm:text-6xl lg:text-7xl leading-[1.02] tracking-tight"
                     >
-                        Vamos levar o
+                        O Wilson
                         <br />
-                        <em className="not-italic text-[#C85A17]">
-                            Wilson
-                        </em>{" "}
-                        a&nbsp;casa.
+                        <em className="not-italic moz-accent-text">
+                            vai a casa.
+                        </em>
                     </h1>
 
                     <p className="mt-4 text-sm uppercase tracking-[0.18em] text-[#8B5A2B]">
@@ -38,20 +37,19 @@ export default function Hero() {
                     </p>
 
                     <p className="mt-6 max-w-xl text-lg sm:text-xl text-[#5C5248] leading-relaxed font-light">
-                        Desde Timor até Lisboa, a saudade de Moçambique só
-                        cresceu. Neste{" "}
-                        <span className="text-[#2C2621]">25 de junho</span>, o
-                        presente somos nós que damos: uma passagem para
-                        abraçar a família.
+                        Conseguimos. Graças a uma comunidade que não hesitou,
+                        o Wilson parte no seu{" "}
+                        <span className="text-[#2C2621] font-medium">25 de Junho</span>{" "}
+                        para abraçar a família que não vê há quase três anos.
                     </p>
 
                     <div className="mt-10 flex flex-col sm:flex-row gap-4">
                         <button
                             data-testid="hero-donate-cta"
-                            onClick={() => goTo("contribuir")}
-                            className="group inline-flex items-center justify-center gap-2 rounded-full bg-[#C85A17] hover:bg-[#A64A12] text-white px-7 py-4 text-base font-medium shadow-sm hover:-translate-y-0.5 hover:shadow-xl transition-all"
+                            onClick={() => goTo("historia")}
+                            className="group inline-flex items-center justify-center gap-2 rounded-full moz-btn-primary text-white px-7 py-4 text-base font-medium shadow-sm hover:-translate-y-0.5 hover:shadow-xl transition-all"
                         >
-                            Quero contribuir
+                            A história do Wilson
                             <ArrowRight
                                 size={16}
                                 strokeWidth={2}
@@ -60,10 +58,10 @@ export default function Hero() {
                         </button>
                         <button
                             data-testid="hero-story-cta"
-                            onClick={() => goTo("historia")}
-                            className="inline-flex items-center justify-center gap-2 rounded-full bg-transparent text-[#2C2621] hover:text-[#C85A17] px-2 py-4 text-base font-medium transition-colors"
+                            onClick={() => goTo("gratidao")}
+                            className="inline-flex items-center justify-center gap-2 rounded-full bg-transparent text-[#2C2621] hover:text-[#D21034] px-2 py-4 text-base font-medium transition-colors"
                         >
-                            Ler a história do Wilson
+                            Ver os agradecimentos
                         </button>
                     </div>
                 </div>
@@ -79,19 +77,18 @@ export default function Hero() {
                         <div className="absolute bottom-6 left-6 right-6 text-[#FDFBF7]">
                             <p className="font-serif-display text-xl sm:text-2xl italic leading-tight">
                                 "A bandeira que carrega.
-                                <br />A casa para onde quer voltar."
+                                <br />A casa para onde vai voltar."
                             </p>
                         </div>
                     </div>
-                    {/* Decorative stickers */}
                     <div className="hidden lg:block absolute -top-4 -left-6 px-3 py-2 rounded-xl bg-[#FDFBF7] border border-[#E6D5B8] shadow-sm rotate-[-6deg]">
                         <p className="text-xs text-[#8B5A2B] font-medium">
-                            Maio 2023 · Timor
+                            Três anos &middot; Dois continentes
                         </p>
                     </div>
-                    <div className="hidden lg:block absolute -bottom-4 -right-4 px-3 py-2 rounded-xl bg-[#C85A17] text-white shadow-md rotate-[5deg]">
+                    <div className="hidden lg:block absolute -bottom-4 -right-4 px-3 py-2 rounded-xl moz-tag-green text-white shadow-md rotate-[5deg]">
                         <p className="text-xs font-medium">
-                            25 de Junho · Aniversário
+                            25 de Junho &middot; Em casa!
                         </p>
                     </div>
                 </div>

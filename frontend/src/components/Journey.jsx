@@ -15,14 +15,14 @@ const steps = [
         title: "Chegada a Lisboa",
         body: "Veio para Portugal estudar e continuar a trabalhar. Mais perto da Europa — mas ainda longe de casa.",
         icon: Home,
-        accent: "#C85A17",
+        accent: "#D21034",
     },
     {
         when: "Junho 2026",
-        title: "Voltar a Moçambique",
-        body: "Já são quase três anos sem ver os seus. No aniversário, queremos dar-lhe o que mais lhe falta: o abraço da família.",
+        title: "De volta a Moçambique",
+        body: "Quase três anos depois, o Wilson volta. O abraço que não chegou por carta, chegou por avião — graças a todos vocês.",
         icon: Heart,
-        accent: "#A64A12",
+        accent: "#009A44",
     },
 ];
 
@@ -43,8 +43,8 @@ export default function Journey() {
                         <br />
                         Dois continentes.
                         <br />
-                        <span className="text-[#C85A17]">Uma família</span> à
-                        espera.
+                        <span className="moz-accent-text">Uma família</span>{" "}
+                        reunida.
                     </h2>
                 </div>
 
@@ -106,17 +106,16 @@ export default function Journey() {
                             );
                         })}
 
-                        <blockquote className="relative rounded-3xl bg-[#2C2621] text-[#FDFBF7] p-8 sm:p-12">
+                        <blockquote className="relative rounded-3xl moz-dark text-[#FDFBF7] p-8 sm:p-12">
+                            <div className="moz-flag-stripe mb-6" />
                             <p className="font-serif-display text-xl sm:text-2xl italic leading-relaxed">
-                                "Olá queridos! O nosso Wilson faz anos no dia
-                                25 de Junho. Estivemos aqui a pensar e
-                                decidimos organizar uma vaquinha — não pode
-                                ser porquinho mealheiro, dado que ele não come
-                                porco (assinado: Joana). O objetivo: ajudar o
-                                Wilson a ir visitar a família a Moçambique."
+                                "Olha para a janela do avião e sabe que, do
+                                outro lado, há pessoas que o esperam com os
+                                braços abertos. Isso foi o que quisemos dar-lhe
+                                — e foi o que demos, juntos."
                             </p>
                             <p className="mt-6 text-sm text-[#FDFBF7]/60 tracking-wide">
-                                — Equipa Organizadora
+                                — Equipa Organizadora &middot; Junho 2026
                             </p>
                         </blockquote>
                     </div>

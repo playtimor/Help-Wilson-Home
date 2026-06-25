@@ -13,6 +13,13 @@
     --ink: #2c2621;
     --ink-soft: #5c5248;
     --line: #e6d5b8;
+
+    /* Mozambique flag palette */
+    --moz-green: #009A44;
+    --moz-black: #1a1a1a;
+    --moz-yellow: #FCB514;
+    --moz-red: #D21034;
+    --moz-dark: #0d2b0d;
 }
 
 * {
@@ -113,6 +120,68 @@ body {
 .link-underline:hover::after {
     transform: scaleX(1);
 }
+
+/* ── Mozambique utility classes ── */
+
+/* Accent text in Mozambique red */
+.moz-accent-text {
+    color: var(--moz-red);
+}
+
+/* Dark footer / blockquote background — deep Mozambican forest green */
+.moz-dark {
+    background: var(--moz-dark);
+}
+
+/* Warm surface tinted slightly gold */
+.moz-surface {
+    background: #f9f4e8;
+}
+
+/* Primary button — Mozambique green */
+.moz-btn-primary {
+    background-color: var(--moz-green);
+}
+.moz-btn-primary:hover {
+    background-color: #007a36;
+}
+
+/* Small tag sticker — green */
+.moz-tag-green {
+    background-color: var(--moz-green);
+}
+
+/* Thin Mozambique flag stripe (green | black | yellow | red) */
+.moz-flag-stripe {
+    display: flex;
+    height: 4px;
+    border-radius: 9999px;
+    overflow: hidden;
+    width: 100%;
+    background: linear-gradient(
+        to right,
+        var(--moz-green) 0% 30%,
+        var(--moz-black) 30% 50%,
+        var(--moz-yellow) 50% 70%,
+        var(--moz-red) 70% 100%
+    );
+}
+
+/* Wider flag stripe for footer */
+.moz-flag-stripe-wide {
+    height: 5px;
+    border-radius: 9999px;
+    overflow: hidden;
+    background: linear-gradient(
+        to right,
+        var(--moz-green) 0% 30%,
+        var(--moz-black) 30% 50%,
+        var(--moz-yellow) 50% 70%,
+        var(--moz-red) 70% 100%
+    );
+}
+
+/* ── end Mozambique utilities ── */
 
 /* Subtle fade-in */
 @keyframes fadeUp {

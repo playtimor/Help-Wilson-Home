@@ -1,5 +1,4 @@
-import { useEffect, useState } from "react";
-import { Calendar, Cake, Users } from "lucide-react";
+import { Users, CheckCircle, Plane } from "lucide-react";
 
 const formatEUR = (n) =>
     new Intl.NumberFormat("pt-PT", {
@@ -8,27 +7,11 @@ const formatEUR = (n) =>
         maximumFractionDigits: 0,
     }).format(n || 0);
 
-function useCountdown(targetIso) {
-    const [now, setNow] = useState(() => Date.now());
-    useEffect(() => {
-        const t = setInterval(() => setNow(Date.now()), 1000);
-        return () => clearInterval(t);
-    }, []);
-    const target = new Date(targetIso).getTime();
-    const diff = Math.max(0, target - now);
-    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-    const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
-    const minutes = Math.floor((diff / (1000 * 60)) % 60);
-    const seconds = Math.floor((diff / 1000) % 60);
-    return { days, hours, minutes, seconds, done: diff === 0 };
-}
-
-export default function GoalProgress({ stats, loading }) {
-    const pct = stats?.percentage || 0;
-    const barWidth = Math.min(100, pct);
-    const surpassed = pct > 100;
-    const deadline = useCountdown(stats?.deadline);
-    const birthday = useCountdown(stats?.birthday);
+export default function GoalProgress({ stats }) {
+    const raised = stats?.raised || 0;
+    const goal = stats?.goal || 1000;
+    const contributors = stats?.contributors_count || 0;
+    const pct = Math.min(Math.round((raised / goal) * 100), 100);
 
     return (
         <section
@@ -38,36 +21,35 @@ export default function GoalProgress({ stats, loading }) {
         >
             <div className="max-w-6xl mx-auto">
                 <div className="text-center max-w-2xl mx-auto mb-14">
-                    <p className="text-xs uppercase tracking-[0.2em] text-[#8B5A2B] mb-4">
-                        A meta
+                    <p className="text-xs uppercase tracking-[0.2em] text-[#009A44] mb-4">
+                        Objetivo atingido
                     </p>
                     <h2 className="font-serif-display text-4xl sm:text-5xl lg:text-6xl text-[#2C2621] leading-tight">
-                        Mil euros.
+                        Meta superada.
                         <br />
-                        Um voo. <span className="text-[#C85A17]">Casa.</span>
+                        <span className="moz-accent-text">Missão cumprida.</span>
                     </h2>
                 </div>
 
-                {/* Big progress card */}
-                <div className="rounded-[2rem] border border-[#E6D5B8] bg-[#FDFBF7] p-8 sm:p-12 shadow-sm">
+                <div className="rounded-[2rem] border border-[#009A44]/30 bg-[#FDFBF7] p-8 sm:p-12 shadow-sm">
                     <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-6">
                         <div>
-                            <p className="text-sm text-[#8B5A2B] uppercase tracking-wider">
+                            <p className="text-sm text-[#009A44] uppercase tracking-wider">
                                 Angariado
                             </p>
                             <p
                                 data-testid="raised-amount"
                                 className="font-serif-display text-5xl sm:text-6xl text-[#2C2621] mt-1"
                             >
-                                {loading ? "—" : formatEUR(stats?.raised)}
+                                {formatEUR(raised)}
                             </p>
                         </div>
                         <div className="sm:text-right">
                             <p className="text-sm text-[#8B5A2B] uppercase tracking-wider">
-                                Meta
+                                Meta inicial
                             </p>
                             <p className="font-serif-display text-3xl sm:text-4xl text-[#5C5248] mt-1">
-                                {formatEUR(stats?.goal || 1000)}
+                                {formatEUR(goal)}
                             </p>
                         </div>
                     </div>
@@ -77,12 +59,12 @@ export default function GoalProgress({ stats, loading }) {
                         className="relative h-6 sm:h-7 rounded-full bg-[#F4EFE6] border border-[#E6D5B8] overflow-hidden"
                     >
                         <div
-                            className={`absolute inset-y-0 left-0 ${surpassed ? "progress-fill-success" : "progress-fill"} rounded-full transition-[width] duration-1000 ease-out`}
-                            style={{ width: `${barWidth}%` }}
+                            className="absolute inset-y-0 left-0 progress-fill-success rounded-full transition-[width] duration-1000 ease-out"
+                            style={{ width: "100%" }}
                         />
                         <div className="absolute inset-0 flex items-center justify-end pr-4">
-                            <span className="text-xs font-medium text-[#2C2621] mix-blend-multiply">
-                                {pct.toFixed(0)}%
+                            <span className="text-xs font-medium text-white mix-blend-screen">
+                                {pct}%
                             </span>
                         </div>
                     </div>
@@ -91,31 +73,22 @@ export default function GoalProgress({ stats, loading }) {
                         <StatCard
                             icon={<Users size={18} strokeWidth={1.5} />}
                             label="Contribuidores"
-                            value={
-                                loading
-                                    ? "—"
-                                    : String(stats?.contributors_count || 0)
-                            }
+                            value={String(contributors)}
+                            accent="#D21034"
                             testid="stat-contributors"
                         />
                         <StatCard
-                            icon={<Calendar size={18} strokeWidth={1.5} />}
-                            label="Prazo (24 jun)"
-                            value={
-                                deadline.done
-                                    ? "Encerrado"
-                                    : `${deadline.days}d ${deadline.hours}h`
-                            }
+                            icon={<CheckCircle size={18} strokeWidth={1.5} />}
+                            label="Meta superada"
+                            value="100%+"
+                            accent="#009A44"
                             testid="stat-deadline"
                         />
                         <StatCard
-                            icon={<Cake size={18} strokeWidth={1.5} />}
-                            label="Aniversário (25 jun)"
-                            value={
-                                birthday.done
-                                    ? "É hoje!"
-                                    : `${birthday.days}d ${birthday.hours}h`
-                            }
+                            icon={<Plane size={18} strokeWidth={1.5} />}
+                            label="Destino"
+                            value="Moçambique"
+                            accent="#FCB514"
                             testid="stat-birthday"
                         />
                     </div>
@@ -125,13 +98,16 @@ export default function GoalProgress({ stats, loading }) {
     );
 }
 
-function StatCard({ icon, label, value, testid }) {
+function StatCard({ icon, label, value, accent, testid }) {
     return (
         <div
             data-testid={testid}
             className="rounded-2xl border border-[#E6D5B8] bg-[#F4EFE6]/60 p-5 flex items-center gap-4"
         >
-            <div className="w-10 h-10 rounded-xl bg-[#C85A17]/10 text-[#C85A17] flex items-center justify-center">
+            <div
+                className="w-10 h-10 rounded-xl flex items-center justify-center"
+                style={{ background: accent + "18", color: accent }}
+            >
                 {icon}
             </div>
             <div className="min-w-0">
